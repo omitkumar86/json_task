@@ -70,39 +70,42 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Android Versions'),
+        centerTitle: true,
       ),
-      body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              androidVersions = _parseAndroidVersions(input1);
-            });
-          },
-          child: const Text('Parse Input 1'),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              androidVersions = _parseAndroidVersions(input2);
-            });
-          },
-          child: const Text('Parse Input 2'),
-        ),
-        const SizedBox(height: 16),
-        const Text('Android Versions:'),
-        Expanded(
-          child: ListView.builder(
-            itemCount: androidVersions.length,
-            itemBuilder: (context, index) {
-              final version = androidVersions[index];
-              return ListTile(
-                title: Text(version.title ?? ''),
-                subtitle: Text('API Level: ${version.id ?? ''}'),
-              );
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                androidVersions = _parseAndroidVersions(input1);
+              });
             },
+            child: const Text('Parse Input 1'),
           ),
-        ),
-      ]),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                androidVersions = _parseAndroidVersions(input2);
+              });
+            },
+            child: const Text('Parse Input 2'),
+          ),
+          const SizedBox(height: 16),
+          const Text('Android Versions:'),
+          Expanded(
+            child: ListView.builder(
+              itemCount: androidVersions.length,
+              itemBuilder: (context, index) {
+                final version = androidVersions[index];
+                return ListTile(
+                  title: Text(version.title ?? ''),
+                );
+              },
+            ),
+          ),
+        ]),
+      ),
     );
   }
 }

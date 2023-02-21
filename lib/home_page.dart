@@ -93,16 +93,82 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 16),
           const Text('Android Versions:'),
-          Expanded(
-            child: ListView.builder(
-              itemCount: androidVersions.length,
-              itemBuilder: (context, index) {
-                final version = androidVersions[index];
-                return ListTile(
-                  title: Text(version.title ?? ''),
-                );
-              },
+          const SizedBox(height: 16),
+          Container(
+            child:Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.black)),
+                  child: Column(
+                    children: [
+                      Text("Output - 01", style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("${androidVersions[0].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                          Text("${androidVersions[1].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                          Text("                     "),
+                          Text("${androidVersions[2].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                        ],
+                      ),
+                      SizedBox(height: 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("${androidVersions[3].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                          Text("${androidVersions[4].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                          Text("${androidVersions[5].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                          Text("${androidVersions[6].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                        ],
+                      ),
+                    ],
+                  ),),
+                // Container(
+                //   padding: EdgeInsets.all(15),
+                //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                //       border: Border.all(color: Colors.black)),
+                //   child: Column(
+                //     children: [
+                //       Text("Output - 02", style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+                //       SizedBox(height: 20),
+                //       Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           Text("${androidVersions[0].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //           Text("${androidVersions[1].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //           Text("                     "),
+                //           Text("${androidVersions[2].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //         ],
+                //       ),
+                //       SizedBox(height: 15),
+                //       Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           Text("${androidVersions[3].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //           Text("          "),
+                //           Text("${androidVersions[4].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //           Text("${androidVersions[5].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //         ],
+                //       ),
+                //       SizedBox(height: 15),
+                //       Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           Text("${androidVersions[6].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //           Text("${androidVersions[7].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //           Text("${androidVersions[8].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //           Text("${androidVersions[9].title}", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
+                //         ],
+                //       ),
+                //     ],
+                //   ),
+                // ),
+              ],
             ),
+
           ),
         ]),
       ),

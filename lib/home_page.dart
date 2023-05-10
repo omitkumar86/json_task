@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   late List<dynamic> input1;
   late List<dynamic> input2;
   late List<AndroidVersion> androidVersions;
+  bool isInput1 = false;
 
   @override
   void initState() {
@@ -78,7 +79,8 @@ class _HomePageState extends State<HomePage> {
           ElevatedButton(
             onPressed: () {
               setState(() {
-                androidVersions = _parseAndroidVersions(input1);
+                isInput1 = true;
+                //androidVersions = _parseAndroidVersions(input1);
               });
             },
             child: const Text('Parse Input 1'),
@@ -86,7 +88,8 @@ class _HomePageState extends State<HomePage> {
           ElevatedButton(
             onPressed: () {
               setState(() {
-                androidVersions = _parseAndroidVersions(input2);
+                isInput1 = false;
+                //androidVersions = _parseAndroidVersions(input2);
               });
             },
             child: const Text('Parse Input 2'),
@@ -97,7 +100,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             child:Column(
               children: [
-                androidVersions==input1?Container(
+                isInput1 == true?Container(
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.black)),
@@ -125,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ],
-                  ),):
+                  ),):isInput1 == false?
                   Container(
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
@@ -165,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                  ),
+                  ):SizedBox.shrink(),
                 ],
               ),
             ),

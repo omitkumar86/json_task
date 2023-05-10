@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   late List<dynamic> input1;
   late List<dynamic> input2;
   late List<AndroidVersion> androidVersions;
-  bool isInput1 = false;
+  bool isInput = true;
 
   @override
   void initState() {
@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
 
     // Parse the input data into a list of AndroidVersion objects
     androidVersions = _parseAndroidVersions(input1);
+    androidVersions = _parseAndroidVersions(input2);
   }
 
   List<AndroidVersion> _parseAndroidVersions(List<dynamic> input) {
@@ -74,22 +75,25 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child:
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           ElevatedButton(
             onPressed: () {
               setState(() {
-                isInput1 = true;
+                isInput = true;
                 //androidVersions = _parseAndroidVersions(input1);
               });
             },
             child: const Text('Parse Input 1'),
           ),
+          SizedBox(
+            height: 10,
+          ),
           ElevatedButton(
             onPressed: () {
               setState(() {
-                isInput1 = false;
+                isInput = false;
                 //androidVersions = _parseAndroidVersions(input2);
               });
             },
@@ -101,7 +105,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             child: Column(
               children: [
-                isInput1 == true
+                isInput == true
                     ? Container(
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
@@ -172,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       )
-                    : isInput1 == false
+                    : isInput == false
                         ? Container(
                             padding: EdgeInsets.all(15),
                             decoration: BoxDecoration(
